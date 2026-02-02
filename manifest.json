@@ -1,6 +1,6 @@
 {
   "name": "Microsoft to Pedosoft Replacer",
-  "description": "Replaces every mention of 'Microsoft', 'Bill Gates', 'Azure', 'Windows' eg. with 'Pedosoft' or similar satirical texts. \n\nReplaces every mention of 'Microsoft' with 'Microslop' client-side. This extension is intended solely for satire and does not assert factual claims. \n\nThis extension only visually manipulates the text - the real data on the webpages is not manipulated. \n\nThis extension does not collect, transmit or storage any data whatsoever. It only modifies the visual display of text locally in the browser.",
+  "description": "A satirical client-side text replacer that visually substitutes brands related to Bill Gates or Microsoft with humorous alternatives at Dom content load. Operates entirely in-browser—no data collection, transmission, or modification of actual webpage content occurs. For entertainment purposes only; this extension does not assert factual claims.",
   "version": "1.0.0",
   "manifest_version": 3,
   "content_scripts": [
