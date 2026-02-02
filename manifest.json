@@ -1,6 +1,6 @@
 {
   "name": "Microsoft to Pedosoft Replacer",
-  "description": "Changes texts related to Microsoft or Bill Gates to Pedosoft etc. This is a satirical extension which does not assert factual claims.",
+  "description": "Changes texts related to Microsoft or Bill Gates to Pedosoft. This is a satirical extension which does not assert factual claims.",
   "version": "1.0.0",
   "manifest_version": 3,
   "homepage_url": "https://github.com/krel99/Microsoft---Pedosoft-Chrome-Extension",
