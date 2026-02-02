@@ -1,7 +1,19 @@
 const REPLACEMENTS = [
   {
     pattern: /microsoft/gi,
-    replacement: "microslop",
+    replacement: "pedosoft",
+  },
+  {
+    pattern: /Bill Gates/gi,
+    replacement: "Pet Ofill",
+  },
+  {
+    pattern: /Azure Cloud/gi,
+    replacement: "Pedo Island",
+  },
+  {
+    pattern: /Azure/gi,
+    replacement: "Pedo",
   },
 ];
 
@@ -31,11 +43,7 @@ const replaceTextInNode = (node) => {
 };
 
 const walkTextNodes = (root) => {
-  const walker = document.createTreeWalker(
-    root,
-    NodeFilter.SHOW_TEXT,
-    null,
-  );
+  const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null);
   let current = walker.nextNode();
   while (current) {
     replaceTextInNode(current);
