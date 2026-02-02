@@ -40,6 +40,19 @@ function shouldSkipNode(node) {
   return false;
 }
 
+function applyCapitalization(original, replacement) {
+  // ALL CAP
+  if (original === original.toUpperCase()) {
+    return replacement.toUpperCase();
+  }
+  // First letter
+  if (original.charAt(0) === original.charAt(0).toUpperCase()) {
+    return replacement.charAt(0).toUpperCase() + replacement.slice(1);
+  }
+  // All lowercase or mixed
+  return replacement.toLowerCase();
+}
+
 function replaceTextInNode(node) {
   if (node.nodeType !== Node.TEXT_NODE || shouldSkipNode(node)) {
     return;
@@ -48,9 +61,11 @@ function replaceTextInNode(node) {
   if (!text) {
     return;
   }
+
   REPLACEMENTS.forEach(({ pattern, replacement }) => {
-    text = text.replace(pattern, replacement);
+    text = text.replace(pattern, (match) => applyCapitalization(match, replacement));
   });
+
   if (text !== node.nodeValue) {
     node.nodeValue = text;
   }
