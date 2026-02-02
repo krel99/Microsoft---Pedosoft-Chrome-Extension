@@ -1,6 +1,6 @@
 {
   "name": "Microsoft to Pedosoft Replacer",
-  "description": "A satirical client-side text replacer that visually substitutes brands related to Bill Gates or Microsoft with humorous alternatives at Dom content load. Operates entirely in-browser—no data collection, transmission, or modification of actual webpage content occurs. For entertainment purposes only; this extension does not assert factual claims.",
+  "description": "Changes texts related to Microsoft or Bill Gates to Pedosoft etc. This is a satirical extension which does not assert factual claims.",
   "version": "1.0.0",
   "manifest_version": 3,
   "homepage_url": "https://github.com/krel99/Microsoft---Pedosoft-Chrome-Extension",
