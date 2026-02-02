@@ -1,9 +1,5 @@
 const REPLACEMENTS = [
   {
-    pattern: /microsoft/gi,
-    replacement: "pedosoft",
-  },
-  {
     pattern: /Bill Gates/gi,
     replacement: "Pet Ofill",
   },
@@ -15,18 +11,36 @@ const REPLACEMENTS = [
     pattern: /Azure/gi,
     replacement: "Pedo",
   },
+  {
+    pattern: /Windows/gi,
+    replacement: "Pedovs",
+  },
+  {
+    pattern: /Microsoft 365/gi,
+    replacement: "Pedosoft 18.3009°N 64.8250°W",
+  },
+  {
+    pattern: /microsoft/gi,
+    replacement: "pedosoft",
+  },
 ];
 
-const shouldSkipNode = (node) => {
-  const parent = node.parentNode;
-  if (!parent || parent.nodeType !== Node.ELEMENT_NODE) {
-    return false;
-  }
-  const tag = parent.tagName;
-  return tag === "SCRIPT" || tag === "STYLE" || tag === "NOSCRIPT";
-};
+function shouldSkipNode(node) {
+  let el = node.parentElement;
+  while (el) {
+    const tag = el.tagName;
+    // skip rendera elements!
+    if (tag === "SCRIPT" || tag === "STYLE" || tag === "NOSCRIPT") return true;
 
-const replaceTextInNode = (node) => {
+    // skip usr inputz
+    if (tag === "TEXTAREA" || tag === "INPUT" || tag === "SELECT" || tag === "OPTION" || el.isContentEditable) return true;
+
+    el = el.parentElement;
+  }
+  return false;
+}
+
+function replaceTextInNode(node) {
   if (node.nodeType !== Node.TEXT_NODE || shouldSkipNode(node)) {
     return;
   }
@@ -40,16 +54,16 @@ const replaceTextInNode = (node) => {
   if (text !== node.nodeValue) {
     node.nodeValue = text;
   }
-};
+}
 
-const walkTextNodes = (root) => {
+function walkTextNodes(root) {
   const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null);
   let current = walker.nextNode();
   while (current) {
     replaceTextInNode(current);
     current = walker.nextNode();
   }
-};
+}
 
 if (document.readyState === "loading") {
   document.addEventListener("DOMContentLoaded", () => walkTextNodes(document.body));
